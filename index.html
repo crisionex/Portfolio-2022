@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+  </head>
+  <!-- CSS FILES -->
+  <link rel="stylesheet" href="dist/css/main.css" />
+  <link rel="stylesheet" href="dist/css/variables.css" />
+  <link rel="stylesheet" href="dist/css/grid.css">
+
+  <!-- PLUGINS AND FRAMEWORKS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+
+  <body>
+    <div class="theme-mode"><span id="theme-icon" class="material-symbols-outlined">dark_mode</span></div>
+    <div class="buffer"></div>
+    <div class="preloader">
+      <div class="screen1"></div>
+      <div class="screen2">
+        <h1 class="loader">Rq</h1>
+      </div>
+    </div>
+    <div class="screen3"></div>
+    <div class="screen4"></div>
+      <!-- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem nam maxime ipsa libero nulla doloremque amet eaque incidunt odit rerum, illum cum. Rerum adipisci mollitia harum consequatur voluptatibus nostrum. Aut? -->
+    </p></div>
+    <div class="main-grid" id="mg">
+      <div class="grid1 navbar">
+        <div class="navbar-logo">
+          <h1 style="font-family: 'Major Mono Display', monospace">R</h1>
+          <h1 class="hamburger hamburger-close">&times</h1>
+        </div>
+        <div class="navbar-links">
+          <a href="#">HOME</a>
+          <a href="#">ABOUT</a>
+          <a href="#">PORTFOLIO</a>
+          <a href="#">CONTACT</a>
+        </div>
+      </div>
+      <a class="hamburger hamburger-open">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="grid1 main-content">
+        <canvas class="canv-anim" id="canvas"></canvas>
+        <div class="start-wrapper">
+          <div class="name-wrapper">
+            <div class="presentation name">
+              <p style="font-size: 3em; font-weight: 500; color: var(--light-color);" class="main-sent">
+                RICARDO QUILANTAN
+              </p>
+          </div>
+          </div>
+            <div class="presentation profesions">
+                <p
+                style="font-size: 3em; font-weight: 200; letter-spacing: 5px;"
+                class="main-sent"
+                id="changeText"
+              >
+                MECHATRONICS ENGINEER
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    //change theme color
+    const themeMode = document.querySelector(".theme-mode");
+    themeMode.addEventListener("click", () => {
+      document.body.classList.toggle("dark-theme");
+      $("#theme-icon").text(($("#theme-icon").text()=='dark_mode') ? 'light_mode' : 'dark_mode');
+      setTimeout(function (){
+        document.body.classList.remove("transition-body");
+      }, 800)
+      document.body.classList.add("transition-body")
+    });
+
+    //open/close navbar
+    $(document).ready(function () {
+      $(".hamburger-open").click(function () {
+        $(".navbar").toggleClass("nav-active");
+      });
+      $(".hamburger-close").click(function () {
+        $(".navbar").toggleClass("nav-active");
+      });
+    });
+
+    //text carrouselle
+    $(document).ready(function () {
+      var text = [
+        "WEB DEVELOPER",
+        "SOFTWARE DEVELOPER",
+        "MECHATRONICS ENGINEER",
+      ];
+      var counter = 0;
+      var elem = document.getElementById("changeText");
+      setInterval(change, 3000);
+      function change() {
+        elem.classList.add("hide");
+        setTimeout(function () {
+          elem.innerHTML = text[counter];
+          elem.classList.remove("hide");
+          counter++;
+          if (counter >= text.length) {
+            counter = 0;
+          }
+        }, 500);
+      }
+    });
+    
+  </script>
+  <script src="dist/js/animations.js"></script>
+  <script src="dist/js/cardioid.js"></script>
+</html>
